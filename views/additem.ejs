@@ -1,0 +1,49 @@
+<%- include('./_header.ejs') %>
+
+<div class="col-md-8">
+ 
+    <div class="panel panel-default">
+ 
+        <div class="panel-heading">
+            <h3>Add Item</h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-signin" method="POST" action="/additem">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">@</span>
+                    <input type="text" class="form-control" placeholder="Item Name" name="ItemName" aria-describedby="basic-addon1">
+                </div>
+                <br />
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">#</span>
+                    <input type="text" class="form-control" placeholder="Serial Number" name="SN"
+                        aria-describedby="basic-addon1">
+                </div>
+                <br />
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">#</span>
+                    <input type="Number" name="Price" class="form-control" placeholder="Price" aria-describedby="basic-addon1">
+                </div>
+                <br />
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">@</span>
+                    <input type="text" class="form-control" placeholder="Description"
+                        aria-describedby="basic-addon1" name="DText">
+                </div>
+                <br />
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">#</span>
+                    <input type="text" class="form-control" placeholder="Delivery Days"
+                        aria-describedby="basic-addon1" name="Delivery_Days">
+                </div>
+ 
+                <input type="submit" class="btn btn-default navbar-btn" value="Add item" />
+ 
+            </form>
+        </div>
+    </div>
+</div>
+ 
+
+
+<%- include('./_footer.ejs') %>

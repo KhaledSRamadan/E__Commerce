@@ -1,0 +1,128 @@
+<%- include('./_header.ejs') %>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 33%%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="col-md-8">
+ 
+    <div class="panel panel-default">
+ 
+        <div class="panel-heading">
+            <h3>Edit Item</h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-signin" method="POST" action="/edit">
+                
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Username</span>
+                    <input type="text" class="form-control" value=<%= currentUser.username %> placeholder="Item Name" name="ItemName" aria-describedby="basic-addon1" readonly>
+                </div>
+                <br />
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">   E-mail  </span>
+                    <input type="text" class="form-control" value=<%= currentUser.email %> placeholder="Sreial Number" name="SN"
+                        aria-describedby="basic-addon1" readonly>
+                </div>
+                <br />
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">Wallet</span>
+                    <input type="Number" name="Price" class="form-control" value=<%= result %> placeholder="Price" aria-describedby="basic-addon1"  readonly>
+                    
+                </div>
+               <%  var wallet = currentUser.wallet; %>
+            <%var loc = "./addcredit?id="+wallet;%>
+               <a href='<%=loc%>' class="btn btn-default navbar-btn">Add Credit</a>
+
+ 
+            </form>
+        </div>
+
+    </div>
+   
+<% if (reports.length >0){ %>
+
+    <h2>Purchased Items  </h2> 
+
+<div class="row">
+<% for (let i = 0; i < reports.length; i++) { %>
+  <div class="column">
+    <div class="card">
+      <h3><%= reports[i].P_Name %></h3>
+      <p>Transaction Amount: <%= reports[i].Transaction_Amount %></p>
+      <p>Seller: <%= reports[i].SellerName %></p>
+      <p>Purchase Date: <%= reports[i].Createdat %></p>
+      
+
+
+      
+      
+    </div>
+
+  </div>
+<%}%>
+
+  
+
+  
+</div>
+<%}%>
+
+
+</body>
+       
+  
+
+  
+</div>
+</div>
+</div>
+ 
+</body>
+
+<%- include('./_footer.ejs') %>
